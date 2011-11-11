@@ -1,0 +1,12 @@
+{% extends ".html" %}
+{% load uni_form_tags %}
+{% block body %}
+<form action="" method="POST" class="uniForm">
+        {% csrf_token %}
+        {{ form|as_uni_form }}
+        <div class="form_block">
+            <input type="submit" value="Send">
+        </div>
+    </fieldset>
+</form>
+{% endblock %}

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <!--[if IE]><style>
+            div {
+                zoom: 1; /* trigger hasLayout */
+            }
+        </style><![endif]-->
+        <link rel="stylesheet" media="screen" type="text/css" href="{{ STATIC_URL }}css/uni-form.css" />
+        <link rel="stylesheet" media="screen" type="text/css" href="{{ STATIC_URL }}css/screen.css" />
+        <!--[if lte IE 7]>	<link type="text/css" rel="stylesheet" href="{{ STATIC_URL}}css/IE.css" /><![endif]-->
+
+        <script src="{{ STATIC_URL }}js/jquery-1.4.3.min.js" type="text/javascript"></script>
+        <script src="{{ STATIC_URL }}js/jquery-ui-1.8.6.full.min.js" type="text/javascript"></script>
+ 		<script src="{{ STATIC_URL }}js/scripts.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-8825600-7']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+    <div id="wrapper">
+        <div id="header">
+            <a href="/"><div id="logo"></div></a>
+            <div id="nav">
+                <div id="name-and-date"></div>
+                <ul>
+                    <li><a href="/rsvp/">RSVP</a></li>
+                    <li><img src="{{ STATIC_URL }}img/flower.png"></li>
+                    <li><a href="/wedding_info/">Wedding Day Info</a></li>
+                    <li><img src="{{ STATIC_URL }}img/flower.png"></li>
+                    <li><a href="/registry/">Registry Info</a></li>
+                </ul>
+            </div> <!-- #nav -->
+        </div> <!-- #header -->
+        <div id="content">
+            {% if messages %}
+                    {% for message in messages %}
+                        <span id="message_{{ forloop.counter }}"{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                                {{ message }}
+                        </span>
+                    {% endfor %}
+            {% endif %}
+
+            {% block body %}
+                <img id="mainImg" src="{{ STATIC_URL }}img/img_main.png" />
+            {% endblock %}
+        </div> <!-- #content -->
+    </div> <!-- #wrapper -->
+</body>
+</html>
