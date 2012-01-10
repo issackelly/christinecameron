@@ -1,6 +1,8 @@
 {% extends ".html" %}
 {% load uni_form_tags %}
 {% block body %}
+
+{% comment %}
 <form action="" method="POST" class="uniForm">
         {% csrf_token %}
         {{ form|as_uni_form }}
@@ -9,4 +11,5 @@
         </div>
     </fieldset>
 </form>
+{% endcomment %}
 {% endblock %}
